@@ -53,6 +53,7 @@ class PortalBrowserViewModel : ObservableObject {
                     .map { (items, folders) -> [AGSPortalItem] in items.filter { $0.type == .webMap }}
                     .eraseToAnyPublisher()
             }
+            .receive(on: RunLoop.main)
             .sink(receiveCompletion: { (completion) in
                 switch completion {
                 case .failure(let error):
