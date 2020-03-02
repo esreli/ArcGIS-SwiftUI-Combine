@@ -65,9 +65,7 @@ class AppPortalModel: ObservableObject {
                     self.status = .signedIn(portal)
                 }
                 else {
-                    self.status = .failureSigningIn(NSError(domain: "com.esri.ArcGIS+SwiftUI+Combine",
-                                                            code: 1,
-                                                            userInfo: [NSLocalizedDescriptionKey : "Missing user credential."]))
+                    self.status = .failureSigningIn(NSError.missingUserCredential)
                 }
             }
             .store(in: &disposable)

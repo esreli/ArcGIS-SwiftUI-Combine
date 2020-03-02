@@ -25,9 +25,11 @@ class PortalBrowserViewModel : ObservableObject {
     
     init(_ portal: AGSPortal) {
         
-        let portalItemThumbnailSubject = PassthroughSubject<AGSLoadableImage, Error>()
-        
-        portalItemThumbnailSubject
+        // A subject to load all portal item thumbnails
+        let portalItemsSubject = PassthroughSubject<[AGSPortalItem], Error>()
+        portalItemsSubject
+            .flatMap { (items) in Publishers.Sequence<[AGSPortalItem], Error>(sequence: items) }
+            .compactMap { $0.thumbnail }
             .flatMap { (loadableImage) -> AnyPublisher<UIImage?, Error> in
                 loadableImage.publisher
                     .load()
@@ -37,19 +39,14 @@ class PortalBrowserViewModel : ObservableObject {
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { (_) in }) { (_) in self.objectWillChange.send() }
             .store(in: &disposable)
-        
-        let portalItemsSubject = PassthroughSubject<[AGSPortalItem], Never>()
-        
-        portalItemsSubject
-            .flatMap { (items) in Publishers.Sequence<[AGSPortalItem], Never>(sequence: items) }
-            .compactMap { $0.thumbnail }
-            .sink(receiveValue: portalItemThumbnailSubject.send)
-            .store(in: &disposable)
 
+        // Build a stream to fetch the authenticated user's content.
         portal.publisher
             .load()
-            .filter { $0.loadStatus == .loaded && portal.user != nil }
-            .map { $0.user! }
+            .tryMap { (portal) -> AGSPortalUser in
+                guard portal.loadStatus == .loaded && portal.user != nil else { throw NSError.missingUserCredential }
+                return portal.user!
+            }
             .flatMap { (user) -> AnyPublisher<[AGSPortalItem], Error> in
                 user.publisher
                     .fetchContent()

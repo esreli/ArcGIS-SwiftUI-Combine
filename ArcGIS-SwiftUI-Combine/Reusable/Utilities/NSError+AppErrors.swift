@@ -16,6 +16,10 @@ import Foundation
 
 extension NSError {
     static var unknown: NSError {
-        return NSError(domain: "ArcGIS.SwiftUI.AppError.UnknownError", code: 1, userInfo: [NSLocalizedDescriptionKey: "An unknown error occurred."])
+        NSError(domain: "ArcGIS.SwiftUI.AppError.UnknownError", code: 1, userInfo: [NSLocalizedDescriptionKey: "An unknown error occurred."])
+    }
+    
+    static var missingUserCredential: NSError {
+        NSError(domain: "com.esri.ArcGIS+SwiftUI+Combine", code: 2, userInfo: [NSLocalizedDescriptionKey : "Missing user credential."])
     }
 }
