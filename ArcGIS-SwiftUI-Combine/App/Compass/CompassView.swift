@@ -37,7 +37,7 @@ class CompassViewModel : ObservableObject {
                     .setViewpointRotation(angle)
                     .eraseToAnyPublisher()
             }
-            .sink{ _ in }
+            .sink { _ in }
             .store(in: &disposable)
     }
     
@@ -51,7 +51,7 @@ class CompassViewModel : ObservableObject {
     
     // MARK: - Disposable
     
-    private var disposable = [AnyCancellable]()
+    private var disposable = Set<AnyCancellable>()
     
     deinit {
         disposable.forEach { $0.cancel() }
@@ -63,9 +63,7 @@ struct CompassView : View {
     @ObservedObject var model: CompassViewModel
     
     var body : some View {
-        Button(action: {
-            self.model.rotateMapTrueNorth()
-        }) {
+        Button(action: rotateMapTrueNorth) {
             Image("Compass")
                 .renderingMode(.original)
                 .resizable()
@@ -74,5 +72,9 @@ struct CompassView : View {
         .rotationEffect(.degrees(-model.rotation))
         .buttonStyle(PlainButtonStyle())
         .opacity(model.rotation == 0.0 ? 0.0 : 1.0)
+    }
+    
+    private func rotateMapTrueNorth() {
+        model.rotateMapTrueNorth()
     }
 }
