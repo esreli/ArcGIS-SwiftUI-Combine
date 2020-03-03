@@ -62,8 +62,6 @@ class AppPortalModel: ObservableObject {
                     self.status = .failureSigningIn(error)
                     break
                 case .finished:
-                    preconditionFailure("This subscriber's upstream should never return a completion value of .finished.")
-                    self.status = .failureSigningIn(AppError.unknown)
                     break
                 }
             }) { self.status = .signedIn($0)  }

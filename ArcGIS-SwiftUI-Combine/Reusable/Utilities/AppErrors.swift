@@ -14,7 +14,7 @@
 
 import Foundation
 
-enum AppError: Error {
+enum AppError: LocalizedError {
     
     case unknown
     case missingUserCredential
