@@ -16,16 +16,16 @@ import ArcGIS
 import SwiftUI
 import Combine
 
-struct ArcGISMapView : View {
+struct SUIMapView : View {
     
-    @ObservedObject var viewModel: ArcGISMapViewModel
+    @ObservedObject var viewModel: SUIMapViewModel
     
     var body: some View {
         
         WrappedMapView(
         setup: {
             // Begin publishing observed changes to map view properties and perform view model setup.
-            return self.viewModel.publisher.base
+            return self.viewModel.publishable.base
         },
         update: { (mapView) in
             // Coordinate touch events
@@ -38,7 +38,7 @@ struct ArcGISMapView : View {
 
 // MARK:- ArcGISMapViewTouchDelegateCoordinator
 
-extension ArcGISMapView {
+extension SUIMapView {
     
     typealias ChangeForceTouchAtClosure = (CGPoint, AGSPoint, Double) -> Void
 
@@ -141,13 +141,13 @@ extension ArcGISMapView {
 
 private final class ArcGISMapViewTouchDelegateCoordinator : NSObject, AGSGeoViewTouchDelegate {
     
-    var changeForceTouchAt: ArcGISMapView.ChangeForceTouchAtClosure?
+    var changeForceTouchAt: SUIMapView.ChangeForceTouchAtClosure?
 
     func geoView(_ geoView: AGSGeoView, didChangeForceTouchAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint, force: Double) {
         changeForceTouchAt?(screenPoint, mapPoint, force)
     }
 
-    var doubleTap: ArcGISMapView.DoubleTapAtClosure?
+    var doubleTap: SUIMapView.DoubleTapAtClosure?
 
     func geoView(_ geoView: AGSGeoView, didDoubleTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint, completion: @escaping (Bool) -> Void) {
         if let closure = doubleTap {
@@ -159,43 +159,43 @@ private final class ArcGISMapViewTouchDelegateCoordinator : NSObject, AGSGeoView
         }
     }
 
-    var endForceTouch: ArcGISMapView.EndForceTouchAtClosure?
+    var endForceTouch: SUIMapView.EndForceTouchAtClosure?
 
     func geoView(_ geoView: AGSGeoView, didEndForceTouchAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint, force: Double) {
         endForceTouch?(screenPoint, mapPoint, force)
     }
 
-    var endLongPress: ArcGISMapView.EndLongPressAtClosure?
+    var endLongPress: SUIMapView.EndLongPressAtClosure?
 
     func geoView(_ geoView: AGSGeoView, didEndLongPressAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         endLongPress?(screenPoint, mapPoint)
     }
 
-    var forceTouch: ArcGISMapView.ForceTouchAtClosure?
+    var forceTouch: SUIMapView.ForceTouchAtClosure?
 
     func geoView(_ geoView: AGSGeoView, didForceTouchAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint, force: Double) {
         forceTouch?(screenPoint, mapPoint, force)
     }
 
-    var longPress: ArcGISMapView.LongPressAtClosure?
+    var longPress: SUIMapView.LongPressAtClosure?
 
     func geoView(_ geoView: AGSGeoView, didLongPressAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         longPress?(screenPoint, mapPoint)
     }
 
-    var moveLongPress: ArcGISMapView.MoveLongPressAtClosure?
+    var moveLongPress: SUIMapView.MoveLongPressAtClosure?
 
     func geoView(_ geoView: AGSGeoView, didMoveLongPressToScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         moveLongPress?(screenPoint, mapPoint)
     }
     
-    var tap: ArcGISMapView.TapAtClosure?
+    var tap: SUIMapView.TapAtClosure?
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         tap?(screenPoint, mapPoint)
     }
     
-    var touchDown: ArcGISMapView.TouchDownAtClosure?
+    var touchDown: SUIMapView.TouchDownAtClosure?
 
     func geoView(_ geoView: AGSGeoView, didTouchDownAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint, completion: @escaping (Bool) -> Void) {
         if let closure = touchDown {
@@ -207,31 +207,31 @@ private final class ArcGISMapViewTouchDelegateCoordinator : NSObject, AGSGeoView
         }
     }
 
-    var touchDrag: ArcGISMapView.TouchDragToClosure?
+    var touchDrag: SUIMapView.TouchDragToClosure?
 
     func geoView(_ geoView: AGSGeoView, didTouchDragToScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         touchDrag?(screenPoint, mapPoint)
     }
 
-    var touchUp: ArcGISMapView.TouchUpAtClosure?
+    var touchUp: SUIMapView.TouchUpAtClosure?
 
     func geoView(_ geoView: AGSGeoView, didTouchUpAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         touchUp?(screenPoint, mapPoint)
     }
 
-    var cancelForceTouch: ArcGISMapView.CancelForceTouchClosure?
+    var cancelForceTouch: SUIMapView.CancelForceTouchClosure?
 
     func geoViewDidCancelForceTouch(_ geoView: AGSGeoView) {
         cancelForceTouch?()
     }
 
-    var cancelLongPress: ArcGISMapView.CancelLongPressClosure?
+    var cancelLongPress: SUIMapView.CancelLongPressClosure?
 
     func geoViewDidCancelLongPress(_ geoView: AGSGeoView) {
         cancelLongPress?()
     }
 
-    var cancelTouchDrag: ArcGISMapView.CancelTouchDragClosure?
+    var cancelTouchDrag: SUIMapView.CancelTouchDragClosure?
 
     func geoViewDidCancelTouchDrag(_ geoView: AGSGeoView) {
         cancelTouchDrag?()

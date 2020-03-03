@@ -15,9 +15,9 @@
 import ArcGIS
 import Combine
 
-extension AGSMapView: ArcGISPublishable { }
+extension AGSMapView: PublishableBase { }
 
-extension ArcGISPublisher where Base == AGSMapView {
+extension Publishable where Base == AGSMapView {
     
     // MARK: Methods
     

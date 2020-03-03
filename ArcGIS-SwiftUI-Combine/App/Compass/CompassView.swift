@@ -23,22 +23,22 @@ class CompassViewModel : ObservableObject {
     init(mapView: AGSMapView) {
         
         // 1. Recieve changes to rotation
-        mapView.publisher
+        mapView.publishable
             .rotation
             .throttle(for: 0.01, scheduler: RunLoop.main, latest: true)
             .assign(to: \.rotation, on: self)
-            .store(in: &disposable)
+            .store(in: &subscriptions)
         
         // 2. Set Map View Viewpoint Rotation to North
         viewPointRotation
             .throttle(for: 0.1, scheduler: RunLoop.main, latest: true)
             .flatMap { (angle) in
-                mapView.publisher
+                mapView.publishable
                     .setViewpointRotation(angle)
                     .ignoreOutput()
             }
             .sink { _ in }
-            .store(in: &disposable)
+            .store(in: &subscriptions)
     }
     
     // MARK: - Rotation
@@ -51,11 +51,7 @@ class CompassViewModel : ObservableObject {
     
     // MARK: - Disposable
     
-    private var disposable = Set<AnyCancellable>()
-    
-    deinit {
-        disposable.forEach { $0.cancel() }
-    }
+    private var subscriptions = Set<AnyCancellable>()
 }
 
 struct CompassView : View {

@@ -21,13 +21,6 @@ struct RoundedCornerImageView: View {
     var height: CGFloat
     var radius: CGFloat
     
-    init(image: Image, width: CGFloat, height: CGFloat, radius: CGFloat) {
-        self.image = image
-        self.width = width
-        self.height = height
-        self.radius = radius
-    }
-    
     var body: some View {
         return image
             .resizable()

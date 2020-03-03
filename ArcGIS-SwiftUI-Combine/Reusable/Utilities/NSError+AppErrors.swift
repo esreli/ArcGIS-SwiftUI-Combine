@@ -14,12 +14,15 @@
 
 import Foundation
 
-extension NSError {
-    static var unknown: NSError {
-        NSError(domain: "ArcGIS.SwiftUI.AppError.UnknownError", code: 1, userInfo: [NSLocalizedDescriptionKey: "An unknown error occurred."])
-    }
+enum AppError: Error {
     
-    static var missingUserCredential: NSError {
-        NSError(domain: "com.esri.ArcGIS+SwiftUI+Combine", code: 2, userInfo: [NSLocalizedDescriptionKey : "Missing user credential."])
+    case unknown
+    case missingUserCredential
+    
+    var localizedDescription: String {
+        switch self {
+        case .unknown: return "An unknown error occurred."
+        case .missingUserCredential: return "Missing user credential."
+        }
     }
 }

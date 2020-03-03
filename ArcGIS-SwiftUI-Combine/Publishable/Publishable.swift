@@ -15,7 +15,7 @@
 import Foundation
 import Combine
 
-class ArcGISPublisher<Base: ArcGISPublishable> {
+class Publishable<Base: PublishableBase> {
     
     let base: Base
     
@@ -24,20 +24,20 @@ class ArcGISPublisher<Base: ArcGISPublishable> {
     }
 }
 
-protocol ArcGISPublishable {
-    associatedtype ArcGISPublisherBase: ArcGISPublishable
+protocol PublishableBase {
+    associatedtype ArcGISPublisherBase: PublishableBase
     
-    static var publisher: ArcGISPublisher<ArcGISPublisherBase>.Type { get }
-    var publisher: ArcGISPublisher<ArcGISPublisherBase> { get }
+    static var publishable: Publishable<ArcGISPublisherBase>.Type { get }
+    var publishable: Publishable<ArcGISPublisherBase> { get }
 }
 
-extension ArcGISPublishable {
+extension PublishableBase {
     
-    static var publisher: ArcGISPublisher<Self>.Type {
-        ArcGISPublisher<Self>.self
+    static var publishable: Publishable<Self>.Type {
+        Publishable<Self>.self
     }
     
-    var publisher: ArcGISPublisher<Self> {
-        ArcGISPublisher<Self>(base: self)
+    var publishable: Publishable<Self> {
+        Publishable<Self>(base: self)
     }
 }

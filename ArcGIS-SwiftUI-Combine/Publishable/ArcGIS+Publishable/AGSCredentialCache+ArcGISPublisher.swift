@@ -15,19 +15,17 @@
 import ArcGIS
 import Combine
 
-extension AGSPortalItem: ArcGISPublishable { }
+extension AGSCredentialCache: PublishableBase { }
 
-extension ArcGISPublisher where Base == AGSPortalItem {
+extension Publishable where Base == AGSCredentialCache {
     
-    var title: AnyPublisher<String, Never> {
-        base.publisher(for: \.title).eraseToAnyPublisher()
-    }
+    // MARK: Methods
     
-    var typeName: AnyPublisher<String, Never> {
-        base.publisher(for: \.typeName).eraseToAnyPublisher()
-    }
-    
-    var viewCount: AnyPublisher<Int, Never> {
-        base.publisher(for: \.viewCount).eraseToAnyPublisher()
+    func removeAndRevokeAllCredentials() -> Future<[AGSCredential: Error], Never> {
+        Future<[AGSCredential: Error], Never> { promise in
+            self.base.removeAndRevokeAllCredentials { (credentials) in
+                promise(.success(credentials))
+            }
+        }
     }
 }

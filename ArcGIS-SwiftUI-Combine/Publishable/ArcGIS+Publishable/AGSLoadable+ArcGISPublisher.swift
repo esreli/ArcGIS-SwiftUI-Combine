@@ -15,7 +15,7 @@
 import ArcGIS
 import Combine
 
-extension ArcGISPublisher where Base: AGSLoadable, Base: NSObject {
+extension Publishable where Base: AGSLoadable, Base: NSObject {
     
     func load() -> Future<Base, Error> {
         Future<Base, Error> { promise in

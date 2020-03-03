@@ -15,9 +15,9 @@
 import ArcGIS
 import Combine
 
-extension AGSMapViewInteractionOptions: ArcGISPublishable { }
+extension AGSMapViewInteractionOptions: PublishableBase { }
 
-extension ArcGISPublisher where Base == AGSMapViewInteractionOptions {
+extension Publishable where Base == AGSMapViewInteractionOptions {
 
     var allowMagnifierToPan: AnyPublisher<Bool, Never> {
         base.publisher(for: \.allowMagnifierToPan).eraseToAnyPublisher()

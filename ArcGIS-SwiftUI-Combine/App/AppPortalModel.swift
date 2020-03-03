@@ -48,27 +48,26 @@ class AppPortalModel: ObservableObject {
         
         // 1. Enable auto sync to keychain
         enableAutoSyncToKeychain()
-                
+        
         // 2. Load the portal
-        portal.publisher
+        portal.publishable
             .load()
+            .tryMap { (portal) -> AGSPortal in
+                guard portal.loadStatus == .loaded, portal.user != nil else { throw AppError.missingUserCredential }
+                return portal
+            }
             .sink(receiveCompletion: { (completion) in
                 switch completion {
                 case .failure(let error):
                     self.status = .failureSigningIn(error)
                     break
                 case .finished:
+                    preconditionFailure("This subscriber's upstream should never return a completion value of .finished.")
+                    self.status = .failureSigningIn(AppError.unknown)
                     break
                 }
-            }) { (portal) in
-                if case .loaded = portal.loadStatus, portal.user != nil {
-                    self.status = .signedIn(portal)
-                }
-                else {
-                    self.status = .failureSigningIn(NSError.missingUserCredential)
-                }
-            }
-            .store(in: &disposable)
+            }) { self.status = .signedIn($0)  }
+            .store(in: &subscriptions)
     }
     
     func signOutFromPortal() {
@@ -88,17 +87,13 @@ class AppPortalModel: ObservableObject {
     
     private func revokeAndDisableAutoSyncToKeychain() {
         AGSAuthenticationManager.shared()
-            .credentialCache.publisher
+            .credentialCache.publishable
             .removeAndRevokeAllCredentials()
             .sink { _ in
                 AGSAuthenticationManager.shared().credentialCache.disableAutoSyncToKeychain()
             }
-            .store(in: &disposable)
+            .store(in: &subscriptions)
     }
     
-    private var disposable = Set<AnyCancellable>()
-    
-    deinit {
-        disposable.forEach { $0.cancel() }
-    }
+    private var subscriptions = Set<AnyCancellable>()
 }

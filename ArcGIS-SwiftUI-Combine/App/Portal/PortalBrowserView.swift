@@ -31,24 +31,24 @@ class PortalBrowserViewModel : ObservableObject {
             .flatMap { (items) in Publishers.Sequence<[AGSPortalItem], Error>(sequence: items) }
             .compactMap { $0.thumbnail }
             .flatMap { (loadableImage) -> AnyPublisher<UIImage?, Error> in
-                loadableImage.publisher
+                loadableImage.publishable
                     .load()
                     .compactMap { (loadableImage) in loadableImage.image }
                     .eraseToAnyPublisher()
             }
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { (_) in }) { (_) in self.objectWillChange.send() }
-            .store(in: &disposable)
+            .store(in: &subscriptions)
 
         // Build a stream to fetch the authenticated user's content.
-        portal.publisher
+        portal.publishable
             .load()
             .tryMap { (portal) -> AGSPortalUser in
-                guard portal.loadStatus == .loaded && portal.user != nil else { throw NSError.missingUserCredential }
-                return portal.user!
+                guard portal.loadStatus == .loaded, let user = portal.user else { throw AppError.missingUserCredential }
+                return user
             }
             .flatMap { (user) -> AnyPublisher<[AGSPortalItem], Error> in
-                user.publisher
+                user.publishable
                     .fetchContent()
                     .map { (items, folders) -> [AGSPortalItem] in items.filter { $0.type == .webMap }}
                     .eraseToAnyPublisher()
@@ -67,14 +67,10 @@ class PortalBrowserViewModel : ObservableObject {
                 self.items = items
                 portalItemsSubject.send(items)
             })
-            .store(in: &disposable)
+            .store(in: &subscriptions)
     }
     
-    private var disposable = Set<AnyCancellable>()
-    
-    deinit {
-        disposable.forEach { $0.cancel() }
-    }
+    private var subscriptions = Set<AnyCancellable>()
 }
 
 struct PortalBrowserView: View {

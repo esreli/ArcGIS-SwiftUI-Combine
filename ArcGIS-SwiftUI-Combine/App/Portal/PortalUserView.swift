@@ -26,7 +26,6 @@ class PortalUserViewModel : ObservableObject {
     
     // User
     struct User {
-        
         let thumbnail : UIImage
         let fullName : String
         let email : String
@@ -42,7 +41,6 @@ class PortalUserViewModel : ObservableObject {
     
     // Org
     struct Organization {
-        
         let name: String
         let subdomain: String
         let id: String
@@ -69,7 +67,7 @@ class PortalUserViewModel : ObservableObject {
         
         portalUserImageSubject
             .flatMap { (loadableImage) -> AnyPublisher<UIImage?, Error> in
-                loadableImage.publisher
+                loadableImage.publishable
                     .load()
                     .compactMap { (loadableImage) in loadableImage.image }
                     .eraseToAnyPublisher()
@@ -80,7 +78,7 @@ class PortalUserViewModel : ObservableObject {
             }) { (image) in
                 self.user = User(thumbnail: image, fullName: self.user?.fullName, email: self.user?.email)
             }
-            .store(in: &disposable)
+            .store(in: &subscriptions)
         
         // 2. Portal User
         
@@ -94,7 +92,7 @@ class PortalUserViewModel : ObservableObject {
                     portalUserImageSubject.send(thumbnail)
                 }
             }
-            .store(in: &disposable)
+            .store(in: &subscriptions)
         
         // 3. Portal Info
         
@@ -106,13 +104,12 @@ class PortalUserViewModel : ObservableObject {
                 self.portalName = info.portalName ?? "Portal"
                 self.organization = Organization(name: info.organizationName, subdomain: info.organizationSubdomain, id: info.organizationID)
             }
-            .store(in: &disposable)
+            .store(in: &subscriptions)
         
         // 4. Load Portal, begin process
         
-        portal.publisher
+        portal.publishable
             .load()
-            .filter { (portal) in portal.loadStatus == .loaded }
             .sink(receiveCompletion: { (completion) in
                 switch completion {
                 case .failure(let error):
@@ -129,14 +126,10 @@ class PortalUserViewModel : ObservableObject {
                     portalUserSubject.send(user)
                 }
             }
-            .store(in: &disposable)
+            .store(in: &subscriptions)
     }
 
-    private var disposable = Set<AnyCancellable>()
-    
-    deinit {
-        disposable.forEach { $0.cancel() }
-    }
+    private var subscriptions = Set<AnyCancellable>()
 }
 
 struct PortalUserView : View {

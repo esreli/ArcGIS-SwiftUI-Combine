@@ -16,7 +16,7 @@ import ArcGIS
 import SwiftUI
 import Combine
 
-class ArcGISMapViewModel : NSObject, ObservableObject {
+class SUIMapViewModel : NSObject, ObservableObject {
     
     // By allowing the user to specify which properties to bind
     // we can reduce the number of state change notifications sent to
@@ -33,7 +33,7 @@ class ArcGISMapViewModel : NSObject, ObservableObject {
             .throttle(for: 0.01, scheduler: DispatchQueue.main, latest: true)
             .receive(on: RunLoop.main)
             .sink { (_) in self.objectWillChange.send() }
-            .store(in: &disposable)
+            .store(in: &subscriptions)
         
         // Subscribe to changes to properties that might affect app UI.
         // Other map view properties should be subscribed to on an as-needed basis.
@@ -43,7 +43,7 @@ class ArcGISMapViewModel : NSObject, ObservableObject {
     
     // MARK:- Disposable Subscriptions
     //
-    private var disposable = Set<AnyCancellable>()
+    private var subscriptions = Set<AnyCancellable>()
     
     // MARK:- Throttler
 
@@ -51,7 +51,7 @@ class ArcGISMapViewModel : NSObject, ObservableObject {
     // the number of state change messages sent to bound SwiftUI Views, thus reducing the number of
     // times the view hierarchy must be re-constructed.
     //
-    let throttler = PassthroughSubject<ArcGISMapViewModel, Never>()
+    let throttler = PassthroughSubject<SUIMapViewModel, Never>()
     
     // MARK:- Publishable AGSMapView
     
@@ -61,16 +61,10 @@ class ArcGISMapViewModel : NSObject, ObservableObject {
     // observes all properties of the map view and publishes the changes via a Combine Subject.
     // Additionally, the Publisher wraps all methods, particularly, creating Combine Publishers of all async methods.
     //
-    private(set) lazy var publisher: ArcGISPublisher<AGSMapView> = { self.mapView.publisher }()
-    
-    deinit {
-        // Cancel bound property subscriptions
-        //
-        disposable.forEach { $0.cancel() }
-    }
+    private(set) lazy var publishable: Publishable<AGSMapView> = { self.mapView.publishable }()
 }
 
-extension ArcGISMapViewModel {
+extension SUIMapViewModel {
     
     struct PropertyBindings: OptionSet {
         let rawValue: Int32
@@ -99,130 +93,131 @@ extension ArcGISMapViewModel {
     private func build(bindings: PropertyBindings) {
 
         if bindings.contains(.adjustedContentInset) {
-            publisher.adjustedContentInset
+            publishable.adjustedContentInset
                 .sink { (inset) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         if bindings.contains(.attributionText) {
-            publisher.attributionText
+            publishable.attributionText
                 .sink { (_) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         if bindings.contains(.isAttributionTextVisible) {
-            publisher.isAttributionTextVisible
+            publishable.isAttributionTextVisible
                 .sink { (_) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         if bindings.contains(.contentInset) {
-            publisher.contentInset
+            publishable.contentInset
                 .sink { (_) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         if bindings.contains(.drawStatus) {
-            publisher.drawStatus
+            publishable.drawStatus
                 .sink { (_) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         if bindings.contains(.graphicsOverlays) {
-            publisher.graphicsOverlays
+            publishable.graphicsOverlays
                 .sink { (_) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         if bindings.contains(.insetsContentInsetFromSafeArea) {
-            publisher.insetsContentInsetFromSafeArea
+            publishable.insetsContentInsetFromSafeArea
                 .sink { (_) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         #warning("Is this a good solution for nested bindings?")
         if bindings.contains(.interactionOptions) {
-            publisher.interactionOptions
+            publishable.interactionOptions
                 .sink { (interactionOptions) in
-                    interactionOptions.publisher.any()
+                    interactionOptions.publishable
+                        .any()
                         .sink { (_) in self.throttler.send(self) }
-                        .store(in: &self.disposable)
+                        .store(in: &self.subscriptions)
                     self.throttler.send(self)
                 }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         #warning("Consider building binding to property changes to (optional) locationDispaly itself.")
         if bindings.contains(.locationDisplay) {
-            publisher.locationDisplay
+            publishable.locationDisplay
                 .sink { (_) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         if bindings.contains(.map) {
-            publisher.map
+            publishable.map
                 .sink { (_) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         if bindings.contains(.mapScale) {
-            publisher.mapScale
+            publishable.mapScale
                 .sink { (_) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         if bindings.contains(.isNavigating) {
-            publisher.isNavigating
+            publishable.isNavigating
                 .sink { (_) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         if bindings.contains(.rotation) {
-            publisher.rotation
+            publishable.rotation
                 .sink { (_) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         if bindings.contains(.selectionProperties) {
-            publisher.selectionProperties
+            publishable.selectionProperties
                 .sink { (_) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         if bindings.contains(.sketchEditor) {
-            publisher.sketchEditor
+            publishable.sketchEditor
                 .sink { (_) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         if bindings.contains(.spatialReference) {
-            publisher.spatialReference
+            publishable.spatialReference
                 .sink { (_) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         if bindings.contains(.timeExtent) {
-            publisher.timeExtent
+            publishable.timeExtent
                 .sink { (_) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         if bindings.contains(.unitsPerPoint) {
-            publisher.unitsPerPoint
+            publishable.unitsPerPoint
                 .sink { (_) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
         
         if bindings.contains(.visibleArea) {
-            publisher.visibleArea
+            publishable.visibleArea
                 .sink { (_) in self.throttler.send(self) }
-                .store(in: &disposable)
+                .store(in: &subscriptions)
         }
     }
 }
 
 // Expose properties of mapView via view model.
-extension ArcGISMapViewModel {
+extension SUIMapViewModel {
     
     var adjustedContentInset : AGSEdgeInsets {
         get { mapView.adjustedContentInset }

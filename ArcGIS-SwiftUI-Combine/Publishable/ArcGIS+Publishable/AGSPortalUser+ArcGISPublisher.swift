@@ -15,9 +15,9 @@
 import ArcGIS
 import Combine
 
-extension AGSPortalUser: ArcGISPublishable { }
+extension AGSPortalUser: PublishableBase { }
 
-extension ArcGISPublisher where Base == AGSPortalUser {
+extension Publishable where Base == AGSPortalUser {
     
     var fullName: AnyPublisher<String?, Never> {
         base.publisher(for: \.fullName).eraseToAnyPublisher()
@@ -41,7 +41,7 @@ extension ArcGISPublisher where Base == AGSPortalUser {
                     promise(.success((items: items, folders: folders)))
                 }
                 else {
-                    promise(.failure(NSError.unknown))
+                    promise(.failure(AppError.unknown))
                 }
             }
         }

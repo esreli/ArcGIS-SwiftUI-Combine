@@ -13,5 +13,13 @@
 // limitations under the License.
 
 import ArcGIS
+import Combine
 
-extension AGSMap: ArcGISPublishable { }
+extension AGSPortal: PublishableBase { }
+
+extension Publishable where Base == AGSPortal {
+
+    var user: AnyPublisher<AGSPortalUser?, Never> {
+        base.publisher(for: \.user).eraseToAnyPublisher()
+    }
+}

@@ -15,9 +15,9 @@
 import ArcGIS
 import Combine
 
-extension AGSLoadableImage: ArcGISPublishable { }
+extension AGSLoadableImage: PublishableBase { }
 
-extension ArcGISPublisher where Base == AGSLoadableImage {
+extension Publishable where Base == AGSLoadableImage {
     
     var image: AnyPublisher<UIImage?, Never> {
         base.publisher(for: \.image).eraseToAnyPublisher()

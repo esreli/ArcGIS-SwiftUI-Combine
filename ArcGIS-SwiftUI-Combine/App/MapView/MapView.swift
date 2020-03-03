@@ -16,7 +16,7 @@ import ArcGIS
 import SwiftUI
 import Combine
 
-class MapViewModel: ArcGISMapViewModel {
+class MapViewModel: SUIMapViewModel {
     
     let scalebarHeight: CGFloat = 22.0
     
@@ -31,7 +31,7 @@ class MapViewModel: ArcGISMapViewModel {
         mapViewIdentify
             .throttle(for: 1.0, scheduler: RunLoop.main, latest: true)
             .flatMap { (point) in
-                self.publisher
+                self.publishable
                     .identifyLayersAt(point, tolerance: 8, returnPopupsOnly: true)
                     .map { (results) in return results.first?.popups.first }
                     .eraseToAnyPublisher()
@@ -47,7 +47,7 @@ class MapViewModel: ArcGISMapViewModel {
                     break
                 }
             }) { (popup) in self.popup = popup }
-            .store(in: &disposable)
+            .store(in: &subscriptions)
         
         // 4. Inset the content giving space for the Scalebar.
         self.contentInset = AGSEdgeInsets(top: 0.0, left: 0.0, bottom: scalebarHeight, right: 0.0)
@@ -55,7 +55,7 @@ class MapViewModel: ArcGISMapViewModel {
     
     // MARK:- Compass
     
-    private(set) lazy var compassViewModel: CompassViewModel = { CompassViewModel(mapView: publisher.base) }()
+    private(set) lazy var compassViewModel: CompassViewModel = { CompassViewModel(mapView: publishable.base) }()
 
     // MARK:- Identify Pop-up
 
@@ -78,11 +78,7 @@ class MapViewModel: ArcGISMapViewModel {
     
     // MARK: - Disposable
     
-    private var disposable = [AnyCancellable]()
-    
-    deinit {
-        disposable.forEach { $0.cancel() }
-    }
+    private var subscriptions = Set<AnyCancellable>()
 }
 
 struct MapView : View {
@@ -126,7 +122,7 @@ struct MapView : View {
     }
     
     var MapView : some View {
-        ArcGISMapView(viewModel: model)
+        SUIMapView(viewModel: model)
             .didTapAt { (screenPoint, _) in
                 self.model.identifyFeatures(for: screenPoint)
             }
@@ -150,7 +146,7 @@ struct MapView : View {
     var Scalebar : some View {
         VStack {
             Spacer()
-            SUIScalebar(mapView: self.model.publisher.base, units: .imperial, style: .alternatingBar, alignment: .left)
+            SUIScalebar(mapView: self.model.publishable.base, units: .imperial, style: .alternatingBar, alignment: .left)
                 .padding()
                 .frame(height: model.scalebarHeight)
         }
@@ -182,7 +178,7 @@ struct MapView : View {
     
     var Legend : some View {
         NavigationView {
-            SUILegendView(geoView: self.model.publisher.base)
+            SUILegendView(geoView: self.model.publishable.base)
                 .navigationBarTitle("Legend")
                 .navigationBarItems(trailing: Button(action: toggleLegend, label: { Text("Dismiss") }))
         }

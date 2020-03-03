@@ -15,9 +15,9 @@
 import ArcGIS
 import Combine
 
-extension AGSLocationDisplay: ArcGISPublishable { }
+extension AGSLocationDisplay: PublishableBase { }
 
-extension ArcGISPublisher where Base == AGSLocationDisplay {
+extension Publishable where Base == AGSLocationDisplay {
 
     var heading: AnyPublisher<Double, Never> {
         base.publisher(for: \.heading).eraseToAnyPublisher()
