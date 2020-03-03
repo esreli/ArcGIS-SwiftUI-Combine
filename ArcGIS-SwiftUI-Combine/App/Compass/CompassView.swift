@@ -35,7 +35,7 @@ class CompassViewModel : ObservableObject {
             .flatMap { (angle) in
                 mapView.publisher
                     .setViewpointRotation(angle)
-                    .eraseToAnyPublisher()
+                    .ignoreOutput()
             }
             .sink { _ in }
             .store(in: &disposable)
