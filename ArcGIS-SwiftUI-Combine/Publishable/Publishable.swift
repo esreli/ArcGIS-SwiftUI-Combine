@@ -15,13 +15,8 @@
 import Foundation
 import Combine
 
-class Publishable<Base: PublishableBase> {
-    
+struct Publishable<Base: PublishableBase> {
     let base: Base
-    
-    init(base: Base) {
-        self.base = base
-    }
 }
 
 protocol PublishableBase {
