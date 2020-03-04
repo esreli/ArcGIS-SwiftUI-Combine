@@ -18,14 +18,14 @@ import Combine
 
 struct SUIMapView : View {
     
-    @ObservedObject var viewModel: SUIMapViewModel
+    let mapView: AGSMapView
     
     var body: some View {
         
         WrappedMapView(
         setup: {
             // Begin publishing observed changes to map view properties and perform view model setup.
-            return self.viewModel.publishable.base
+            return self.mapView
         },
         update: { (mapView) in
             // Coordinate touch events
