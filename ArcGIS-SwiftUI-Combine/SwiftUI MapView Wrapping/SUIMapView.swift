@@ -24,11 +24,9 @@ struct SUIMapView : View {
         
         WrappedMapView(
         setup: {
-            // Begin publishing observed changes to map view properties and perform view model setup.
             return self.mapView
         },
         update: { (mapView) in
-            // Coordinate touch events
             mapView.touchDelegate = self.touchCoordinator
         })
     }
