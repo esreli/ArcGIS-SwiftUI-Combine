@@ -16,22 +16,33 @@ import ArcGIS
 import SwiftUI
 import Combine
 
-class MapViewModel: SUIMapViewModel {
+class MapViewModel: ObservableObject {
+        
+    let mapView = AGSMapView(frame: .zero)
     
     let scalebarHeight: CGFloat = 22.0
+        
+    @Published var title: String = "Map"
     
     init(map: AGSMap) {
-        // 1. Ask for only some state changes.
-        super.init(bindings: [.map, .adjustedContentInset])
         
-        // 2. Set map.
-        self.map = map
+        // Build map item title stream.
+        map.publishable
+            .load()
+            .tryMap { (map) in
+                guard let item = map.item else { throw AppError.unknown }
+                return item.title
+            }
+            .replaceError(with: "Map")
+            .receive(on: RunLoop.main)
+            .assign(to: \.title, on: self)
+            .store(in: &subscriptions)
         
-        // 3. Build map view identify stream.
+        // Build map view identify stream.
         mapViewIdentify
             .throttle(for: 1.0, scheduler: RunLoop.main, latest: true)
             .flatMap { (point) in
-                self.publishable
+                self.mapView.publishable
                     .identifyLayersAt(point, tolerance: 8, returnPopupsOnly: true)
                     .map { (results) in return results.first?.popups.first }
                     .eraseToAnyPublisher()
@@ -49,13 +60,16 @@ class MapViewModel: SUIMapViewModel {
             }) { (popup) in self.popup = popup }
             .store(in: &subscriptions)
         
-        // 4. Inset the content giving space for the Scalebar.
-        self.contentInset = AGSEdgeInsets(top: 0.0, left: 0.0, bottom: scalebarHeight, right: 0.0)
+        // Set map.
+        mapView.map = map
+
+        // Inset the content giving space for the Scalebar.
+        mapView.contentInset = AGSEdgeInsets(top: 0.0, left: 0.0, bottom: scalebarHeight, right: 0.0)
     }
     
     // MARK:- Compass
     
-    private(set) lazy var compassViewModel: CompassViewModel = { CompassViewModel(mapView: publishable.base) }()
+    private(set) lazy var compassViewModel: CompassViewModel = { CompassViewModel(mapView: self.mapView) }()
 
     // MARK:- Identify Pop-up
 
@@ -109,7 +123,7 @@ struct MapView : View {
             Scalebar
             BottomSheet
         }
-        .navigationBarTitle(Text(model.map?.item?.title ?? "Map"), displayMode: .inline)
+        .navigationBarTitle(Text(model.title), displayMode: .inline)
         .navigationBarItems(trailing: legendButton)
         .onReceive(model.$popup) { (popup) in
             self.popup = popup
@@ -122,7 +136,7 @@ struct MapView : View {
     }
     
     var MapView : some View {
-        SUIMapView(viewModel: model)
+        SUIMapView(mapView: model.mapView)
             .didTapAt { (screenPoint, _) in
                 self.model.identifyFeatures(for: screenPoint)
             }
@@ -146,7 +160,7 @@ struct MapView : View {
     var Scalebar : some View {
         VStack {
             Spacer()
-            SUIScalebar(mapView: self.model.publishable.base, units: .imperial, style: .alternatingBar, alignment: .left)
+            SUIScalebar(mapView: self.model.mapView, units: .imperial, style: .alternatingBar, alignment: .left)
                 .padding()
                 .frame(height: model.scalebarHeight)
         }
@@ -178,7 +192,7 @@ struct MapView : View {
     
     var Legend : some View {
         NavigationView {
-            SUILegendView(geoView: self.model.publishable.base)
+            SUILegendView(geoView: self.model.mapView)
                 .navigationBarTitle("Legend")
                 .navigationBarItems(trailing: Button(action: toggleLegend, label: { Text("Dismiss") }))
         }

@@ -28,7 +28,6 @@
 		943F87A022DFAFC400EC40E3 /* AGSMap+Publishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F879522DFAFC400EC40E3 /* AGSMap+Publishable.swift */; };
 		943F87A122DFAFC400EC40E3 /* AGSMapViewInteractionOptions+Publishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F879622DFAFC400EC40E3 /* AGSMapViewInteractionOptions+Publishable.swift */; };
 		943F87A322DFAFC400EC40E3 /* SUIMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F879922DFAFC400EC40E3 /* SUIMapView.swift */; };
-		943F87A422DFAFC400EC40E3 /* SUIMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F879A22DFAFC400EC40E3 /* SUIMapViewModel.swift */; };
 		945D5E0F23D7ACB100B9EC2A /* RoundedCornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5E0E23D7ACB100B9EC2A /* RoundedCornerImageView.swift */; };
 		945D5E1123D7B10C00B9EC2A /* AGSPortalItem+Publishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5E1023D7B10C00B9EC2A /* AGSPortalItem+Publishable.swift */; };
 		945D5E1323D7B55B00B9EC2A /* AGSLoadableImage+Publishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5E1223D7B55B00B9EC2A /* AGSLoadableImage+Publishable.swift */; };
@@ -86,7 +85,6 @@
 		943F879522DFAFC400EC40E3 /* AGSMap+Publishable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSMap+Publishable.swift"; sourceTree = "<group>"; };
 		943F879622DFAFC400EC40E3 /* AGSMapViewInteractionOptions+Publishable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSMapViewInteractionOptions+Publishable.swift"; sourceTree = "<group>"; };
 		943F879922DFAFC400EC40E3 /* SUIMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SUIMapView.swift; sourceTree = "<group>"; };
-		943F879A22DFAFC400EC40E3 /* SUIMapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SUIMapViewModel.swift; sourceTree = "<group>"; };
 		945D5E0E23D7ACB100B9EC2A /* RoundedCornerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerImageView.swift; sourceTree = "<group>"; };
 		945D5E1023D7B10C00B9EC2A /* AGSPortalItem+Publishable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSPortalItem+Publishable.swift"; sourceTree = "<group>"; };
 		945D5E1223D7B55B00B9EC2A /* AGSLoadableImage+Publishable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSLoadableImage+Publishable.swift"; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				943F879922DFAFC400EC40E3 /* SUIMapView.swift */,
-				943F879A22DFAFC400EC40E3 /* SUIMapViewModel.swift */,
 			);
 			path = "SwiftUI MapView Wrapping";
 			sourceTree = "<group>";
@@ -437,7 +434,6 @@
 				94D9CB0723ECC91B0034CD2B /* AGSPopup+Selection.swift in Sources */,
 				94FF73F723E76C26003B90A7 /* CompassView.swift in Sources */,
 				94130CEF23BC02500000190F /* ProminentButtonStyle.swift in Sources */,
-				943F87A422DFAFC400EC40E3 /* SUIMapViewModel.swift in Sources */,
 				943F879D22DFAFC400EC40E3 /* AGSMapView+Publishable.swift in Sources */,
 				945D5E0F23D7ACB100B9EC2A /* RoundedCornerImageView.swift in Sources */,
 				943F878D22DFAFB800EC40E3 /* AppDelegate.swift in Sources */,
