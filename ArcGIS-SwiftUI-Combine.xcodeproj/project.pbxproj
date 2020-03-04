@@ -14,7 +14,7 @@
 		94130CEF23BC02500000190F /* ProminentButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94130CEE23BC02500000190F /* ProminentButtonStyle.swift */; };
 		94130CF523BEA8740000190F /* PortalBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94130CF423BEA8740000190F /* PortalBrowserView.swift */; };
 		94130CF823C3B78C0000190F /* HorizontalDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94130CF723C3B78C0000190F /* HorizontalDividerView.swift */; };
-		94130CFA23C3F9070000190F /* AGSPortalUser+ArcGISPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94130CF923C3F9070000190F /* AGSPortalUser+ArcGISPublisher.swift */; };
+		94130CFA23C3F9070000190F /* AGSPortalUser+Publishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94130CF923C3F9070000190F /* AGSPortalUser+Publishable.swift */; };
 		94130CFC23C3FA760000190F /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94130CFB23C3FA760000190F /* AppErrors.swift */; };
 		94130CFE23C3FFF70000190F /* AGSPortalItem+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94130CFD23C3FFF70000190F /* AGSPortalItem+Combine.swift */; };
 		94130D0023C913690000190F /* PortalUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94130CFF23C913690000190F /* PortalUserView.swift */; };
@@ -23,19 +23,19 @@
 		943F878C22DFAFB800EC40E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F878922DFAFB800EC40E3 /* SceneDelegate.swift */; };
 		943F878D22DFAFB800EC40E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F878A22DFAFB800EC40E3 /* AppDelegate.swift */; };
 		943F879B22DFAFC400EC40E3 /* Publishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F878F22DFAFC400EC40E3 /* Publishable.swift */; };
-		943F879D22DFAFC400EC40E3 /* AGSMapView+ArcGISPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F879222DFAFC400EC40E3 /* AGSMapView+ArcGISPublisher.swift */; };
-		943F879F22DFAFC400EC40E3 /* AGSLoadable+ArcGISPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F879422DFAFC400EC40E3 /* AGSLoadable+ArcGISPublisher.swift */; };
-		943F87A022DFAFC400EC40E3 /* AGSMap+ArcGISPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F879522DFAFC400EC40E3 /* AGSMap+ArcGISPublisher.swift */; };
-		943F87A122DFAFC400EC40E3 /* AGSMapViewInteractionOptions+ArcGISPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F879622DFAFC400EC40E3 /* AGSMapViewInteractionOptions+ArcGISPublisher.swift */; };
+		943F879D22DFAFC400EC40E3 /* AGSMapView+Publishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F879222DFAFC400EC40E3 /* AGSMapView+Publishable.swift */; };
+		943F879F22DFAFC400EC40E3 /* AGSLoadable+Publishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F879422DFAFC400EC40E3 /* AGSLoadable+Publishable.swift */; };
+		943F87A022DFAFC400EC40E3 /* AGSMap+Publishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F879522DFAFC400EC40E3 /* AGSMap+Publishable.swift */; };
+		943F87A122DFAFC400EC40E3 /* AGSMapViewInteractionOptions+Publishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F879622DFAFC400EC40E3 /* AGSMapViewInteractionOptions+Publishable.swift */; };
 		943F87A322DFAFC400EC40E3 /* SUIMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F879922DFAFC400EC40E3 /* SUIMapView.swift */; };
 		943F87A422DFAFC400EC40E3 /* SUIMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F879A22DFAFC400EC40E3 /* SUIMapViewModel.swift */; };
 		945D5E0F23D7ACB100B9EC2A /* RoundedCornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5E0E23D7ACB100B9EC2A /* RoundedCornerImageView.swift */; };
-		945D5E1123D7B10C00B9EC2A /* AGSPortalItem+ArcGISPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5E1023D7B10C00B9EC2A /* AGSPortalItem+ArcGISPublisher.swift */; };
-		945D5E1323D7B55B00B9EC2A /* AGSLoadableImage+ArcGISPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5E1223D7B55B00B9EC2A /* AGSLoadableImage+ArcGISPublisher.swift */; };
-		945D5E1523D9199B00B9EC2A /* AGSCredentialCache+ArcGISPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5E1423D9199B00B9EC2A /* AGSCredentialCache+ArcGISPublisher.swift */; };
+		945D5E1123D7B10C00B9EC2A /* AGSPortalItem+Publishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5E1023D7B10C00B9EC2A /* AGSPortalItem+Publishable.swift */; };
+		945D5E1323D7B55B00B9EC2A /* AGSLoadableImage+Publishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5E1223D7B55B00B9EC2A /* AGSLoadableImage+Publishable.swift */; };
+		945D5E1523D9199B00B9EC2A /* AGSCredentialCache+Publishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5E1423D9199B00B9EC2A /* AGSCredentialCache+Publishable.swift */; };
 		945D5E1723DF5EBE00B9EC2A /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5E1623DF5EBE00B9EC2A /* BottomSheetView.swift */; };
-		94B3EAEC22E23A640082254A /* AGSLocationDisplay+ArcGISPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3EAEB22E23A640082254A /* AGSLocationDisplay+ArcGISPublisher.swift */; };
-		94B3EAEE22E23D340082254A /* AGSLocation+ArcGISPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3EAED22E23D340082254A /* AGSLocation+ArcGISPublisher.swift */; };
+		94B3EAEC22E23A640082254A /* AGSLocationDisplay+Publishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3EAEB22E23A640082254A /* AGSLocationDisplay+Publishable.swift */; };
+		94B3EAEE22E23D340082254A /* AGSLocation+Publishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3EAED22E23D340082254A /* AGSLocation+Publishable.swift */; };
 		94D9CB0523ECB9540034CD2B /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D9CB0423ECB9540034CD2B /* CornerRadius.swift */; };
 		94D9CB0723ECC91B0034CD2B /* AGSPopup+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D9CB0623ECC91B0034CD2B /* AGSPopup+Selection.swift */; };
 		94D9CB0D23EDE1C10034CD2B /* SUIScalebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D9CB0C23EDE1C10034CD2B /* SUIScalebar.swift */; };
@@ -43,7 +43,7 @@
 		94E1999C22CFF6AF0097FF7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94E1999B22CFF6AF0097FF7E /* Assets.xcassets */; };
 		94E1999F22CFF6AF0097FF7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94E1999E22CFF6AF0097FF7E /* Preview Assets.xcassets */; };
 		94E199A222CFF6AF0097FF7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E199A022CFF6AF0097FF7E /* LaunchScreen.storyboard */; };
-		94E7F0E4237A33B800317271 /* AGSPortal+ArcGISPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E7F0E3237A33B800317271 /* AGSPortal+ArcGISPublisher.swift */; };
+		94E7F0E4237A33B800317271 /* AGSPortal+Publishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E7F0E3237A33B800317271 /* AGSPortal+Publishable.swift */; };
 		94FF73F723E76C26003B90A7 /* CompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FF73F623E76C26003B90A7 /* CompassView.swift */; };
 		94FF73FB23E76E44003B90A7 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FF73FA23E76E44003B90A7 /* PopupView.swift */; };
 		94FF73FE23E772D9003B90A7 /* PortalItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FF73FD23E772D9003B90A7 /* PortalItemView.swift */; };
@@ -71,7 +71,7 @@
 		94130CEE23BC02500000190F /* ProminentButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProminentButtonStyle.swift; sourceTree = "<group>"; };
 		94130CF423BEA8740000190F /* PortalBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalBrowserView.swift; sourceTree = "<group>"; };
 		94130CF723C3B78C0000190F /* HorizontalDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalDividerView.swift; sourceTree = "<group>"; };
-		94130CF923C3F9070000190F /* AGSPortalUser+ArcGISPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSPortalUser+ArcGISPublisher.swift"; sourceTree = "<group>"; };
+		94130CF923C3F9070000190F /* AGSPortalUser+Publishable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSPortalUser+Publishable.swift"; sourceTree = "<group>"; };
 		94130CFB23C3FA760000190F /* AppErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
 		94130CFD23C3FFF70000190F /* AGSPortalItem+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSPortalItem+Combine.swift"; sourceTree = "<group>"; };
 		94130CFF23C913690000190F /* PortalUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalUserView.swift; sourceTree = "<group>"; };
@@ -81,19 +81,19 @@
 		943F878922DFAFB800EC40E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		943F878A22DFAFB800EC40E3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		943F878F22DFAFC400EC40E3 /* Publishable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Publishable.swift; sourceTree = "<group>"; };
-		943F879222DFAFC400EC40E3 /* AGSMapView+ArcGISPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSMapView+ArcGISPublisher.swift"; sourceTree = "<group>"; };
-		943F879422DFAFC400EC40E3 /* AGSLoadable+ArcGISPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSLoadable+ArcGISPublisher.swift"; sourceTree = "<group>"; };
-		943F879522DFAFC400EC40E3 /* AGSMap+ArcGISPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSMap+ArcGISPublisher.swift"; sourceTree = "<group>"; };
-		943F879622DFAFC400EC40E3 /* AGSMapViewInteractionOptions+ArcGISPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSMapViewInteractionOptions+ArcGISPublisher.swift"; sourceTree = "<group>"; };
+		943F879222DFAFC400EC40E3 /* AGSMapView+Publishable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSMapView+Publishable.swift"; sourceTree = "<group>"; };
+		943F879422DFAFC400EC40E3 /* AGSLoadable+Publishable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSLoadable+Publishable.swift"; sourceTree = "<group>"; };
+		943F879522DFAFC400EC40E3 /* AGSMap+Publishable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSMap+Publishable.swift"; sourceTree = "<group>"; };
+		943F879622DFAFC400EC40E3 /* AGSMapViewInteractionOptions+Publishable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSMapViewInteractionOptions+Publishable.swift"; sourceTree = "<group>"; };
 		943F879922DFAFC400EC40E3 /* SUIMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SUIMapView.swift; sourceTree = "<group>"; };
 		943F879A22DFAFC400EC40E3 /* SUIMapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SUIMapViewModel.swift; sourceTree = "<group>"; };
 		945D5E0E23D7ACB100B9EC2A /* RoundedCornerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerImageView.swift; sourceTree = "<group>"; };
-		945D5E1023D7B10C00B9EC2A /* AGSPortalItem+ArcGISPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSPortalItem+ArcGISPublisher.swift"; sourceTree = "<group>"; };
-		945D5E1223D7B55B00B9EC2A /* AGSLoadableImage+ArcGISPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSLoadableImage+ArcGISPublisher.swift"; sourceTree = "<group>"; };
-		945D5E1423D9199B00B9EC2A /* AGSCredentialCache+ArcGISPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSCredentialCache+ArcGISPublisher.swift"; sourceTree = "<group>"; };
+		945D5E1023D7B10C00B9EC2A /* AGSPortalItem+Publishable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSPortalItem+Publishable.swift"; sourceTree = "<group>"; };
+		945D5E1223D7B55B00B9EC2A /* AGSLoadableImage+Publishable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSLoadableImage+Publishable.swift"; sourceTree = "<group>"; };
+		945D5E1423D9199B00B9EC2A /* AGSCredentialCache+Publishable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSCredentialCache+Publishable.swift"; sourceTree = "<group>"; };
 		945D5E1623DF5EBE00B9EC2A /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
-		94B3EAEB22E23A640082254A /* AGSLocationDisplay+ArcGISPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSLocationDisplay+ArcGISPublisher.swift"; sourceTree = "<group>"; };
-		94B3EAED22E23D340082254A /* AGSLocation+ArcGISPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSLocation+ArcGISPublisher.swift"; sourceTree = "<group>"; };
+		94B3EAEB22E23A640082254A /* AGSLocationDisplay+Publishable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSLocationDisplay+Publishable.swift"; sourceTree = "<group>"; };
+		94B3EAED22E23D340082254A /* AGSLocation+Publishable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSLocation+Publishable.swift"; sourceTree = "<group>"; };
 		94D9CB0423ECB9540034CD2B /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		94D9CB0623ECC91B0034CD2B /* AGSPopup+Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSPopup+Selection.swift"; sourceTree = "<group>"; };
 		94D9CB0C23EDE1C10034CD2B /* SUIScalebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUIScalebar.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		94E1999E22CFF6AF0097FF7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		94E199A122CFF6AF0097FF7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94E199A322CFF6AF0097FF7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		94E7F0E3237A33B800317271 /* AGSPortal+ArcGISPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSPortal+ArcGISPublisher.swift"; sourceTree = "<group>"; };
+		94E7F0E3237A33B800317271 /* AGSPortal+Publishable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSPortal+Publishable.swift"; sourceTree = "<group>"; };
 		94FF73F623E76C26003B90A7 /* CompassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassView.swift; sourceTree = "<group>"; };
 		94FF73FA23E76E44003B90A7 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		94FF73FD23E772D9003B90A7 /* PortalItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalItemView.swift; sourceTree = "<group>"; };
@@ -188,17 +188,17 @@
 		943F879122DFAFC400EC40E3 /* ArcGIS+Publishable */ = {
 			isa = PBXGroup;
 			children = (
-				943F879422DFAFC400EC40E3 /* AGSLoadable+ArcGISPublisher.swift */,
-				943F879222DFAFC400EC40E3 /* AGSMapView+ArcGISPublisher.swift */,
-				943F879522DFAFC400EC40E3 /* AGSMap+ArcGISPublisher.swift */,
-				943F879622DFAFC400EC40E3 /* AGSMapViewInteractionOptions+ArcGISPublisher.swift */,
-				94B3EAEB22E23A640082254A /* AGSLocationDisplay+ArcGISPublisher.swift */,
-				94B3EAED22E23D340082254A /* AGSLocation+ArcGISPublisher.swift */,
-				94E7F0E3237A33B800317271 /* AGSPortal+ArcGISPublisher.swift */,
-				94130CF923C3F9070000190F /* AGSPortalUser+ArcGISPublisher.swift */,
-				945D5E1023D7B10C00B9EC2A /* AGSPortalItem+ArcGISPublisher.swift */,
-				945D5E1223D7B55B00B9EC2A /* AGSLoadableImage+ArcGISPublisher.swift */,
-				945D5E1423D9199B00B9EC2A /* AGSCredentialCache+ArcGISPublisher.swift */,
+				943F879422DFAFC400EC40E3 /* AGSLoadable+Publishable.swift */,
+				943F879222DFAFC400EC40E3 /* AGSMapView+Publishable.swift */,
+				943F879522DFAFC400EC40E3 /* AGSMap+Publishable.swift */,
+				943F879622DFAFC400EC40E3 /* AGSMapViewInteractionOptions+Publishable.swift */,
+				94B3EAEB22E23A640082254A /* AGSLocationDisplay+Publishable.swift */,
+				94B3EAED22E23D340082254A /* AGSLocation+Publishable.swift */,
+				94E7F0E3237A33B800317271 /* AGSPortal+Publishable.swift */,
+				94130CF923C3F9070000190F /* AGSPortalUser+Publishable.swift */,
+				945D5E1023D7B10C00B9EC2A /* AGSPortalItem+Publishable.swift */,
+				945D5E1223D7B55B00B9EC2A /* AGSLoadableImage+Publishable.swift */,
+				945D5E1423D9199B00B9EC2A /* AGSCredentialCache+Publishable.swift */,
 			);
 			path = "ArcGIS+Publishable";
 			sourceTree = "<group>";
@@ -438,13 +438,13 @@
 				94FF73F723E76C26003B90A7 /* CompassView.swift in Sources */,
 				94130CEF23BC02500000190F /* ProminentButtonStyle.swift in Sources */,
 				943F87A422DFAFC400EC40E3 /* SUIMapViewModel.swift in Sources */,
-				943F879D22DFAFC400EC40E3 /* AGSMapView+ArcGISPublisher.swift in Sources */,
+				943F879D22DFAFC400EC40E3 /* AGSMapView+Publishable.swift in Sources */,
 				945D5E0F23D7ACB100B9EC2A /* RoundedCornerImageView.swift in Sources */,
 				943F878D22DFAFB800EC40E3 /* AppDelegate.swift in Sources */,
-				94B3EAEE22E23D340082254A /* AGSLocation+ArcGISPublisher.swift in Sources */,
+				94B3EAEE22E23D340082254A /* AGSLocation+Publishable.swift in Sources */,
 				94130CF823C3B78C0000190F /* HorizontalDividerView.swift in Sources */,
 				94D9CB1423F1CD5B0034CD2B /* SUILegendView.swift in Sources */,
-				945D5E1123D7B10C00B9EC2A /* AGSPortalItem+ArcGISPublisher.swift in Sources */,
+				945D5E1123D7B10C00B9EC2A /* AGSPortalItem+Publishable.swift in Sources */,
 				94130CFE23C3FFF70000190F /* AGSPortalItem+Combine.swift in Sources */,
 				94130CF523BEA8740000190F /* PortalBrowserView.swift in Sources */,
 				94130D0223CCE5360000190F /* AppRootView.swift in Sources */,
@@ -452,24 +452,24 @@
 				94130CFC23C3FA760000190F /* AppErrors.swift in Sources */,
 				943F878C22DFAFB800EC40E3 /* SceneDelegate.swift in Sources */,
 				94130D0423CCED7C0000190F /* MapView.swift in Sources */,
-				94B3EAEC22E23A640082254A /* AGSLocationDisplay+ArcGISPublisher.swift in Sources */,
+				94B3EAEC22E23A640082254A /* AGSLocationDisplay+Publishable.swift in Sources */,
 				94D9CB0523ECB9540034CD2B /* CornerRadius.swift in Sources */,
 				94130D0023C913690000190F /* PortalUserView.swift in Sources */,
-				94E7F0E4237A33B800317271 /* AGSPortal+ArcGISPublisher.swift in Sources */,
-				945D5E1523D9199B00B9EC2A /* AGSCredentialCache+ArcGISPublisher.swift in Sources */,
-				943F87A022DFAFC400EC40E3 /* AGSMap+ArcGISPublisher.swift in Sources */,
-				943F87A122DFAFC400EC40E3 /* AGSMapViewInteractionOptions+ArcGISPublisher.swift in Sources */,
+				94E7F0E4237A33B800317271 /* AGSPortal+Publishable.swift in Sources */,
+				945D5E1523D9199B00B9EC2A /* AGSCredentialCache+Publishable.swift in Sources */,
+				943F87A022DFAFC400EC40E3 /* AGSMap+Publishable.swift in Sources */,
+				943F87A122DFAFC400EC40E3 /* AGSMapViewInteractionOptions+Publishable.swift in Sources */,
 				94130CED23BC02120000190F /* AlertError.swift in Sources */,
 				943F87A322DFAFC400EC40E3 /* SUIMapView.swift in Sources */,
 				94FF73FB23E76E44003B90A7 /* PopupView.swift in Sources */,
 				94130CE923BC01650000190F /* AppPortalModel.swift in Sources */,
-				94130CFA23C3F9070000190F /* AGSPortalUser+ArcGISPublisher.swift in Sources */,
+				94130CFA23C3F9070000190F /* AGSPortalUser+Publishable.swift in Sources */,
 				94D9CB0D23EDE1C10034CD2B /* SUIScalebar.swift in Sources */,
 				94FF73FE23E772D9003B90A7 /* PortalItemView.swift in Sources */,
 				943F879B22DFAFC400EC40E3 /* Publishable.swift in Sources */,
-				945D5E1323D7B55B00B9EC2A /* AGSLoadableImage+ArcGISPublisher.swift in Sources */,
+				945D5E1323D7B55B00B9EC2A /* AGSLoadableImage+Publishable.swift in Sources */,
 				94130CE723BC01330000190F /* PortalSignInView.swift in Sources */,
-				943F879F22DFAFC400EC40E3 /* AGSLoadable+ArcGISPublisher.swift in Sources */,
+				943F879F22DFAFC400EC40E3 /* AGSLoadable+Publishable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
