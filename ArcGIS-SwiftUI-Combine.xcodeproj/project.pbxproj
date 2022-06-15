@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F0DAFE9498BF0FF986DF442 /* Pods_ArcGIS_SwiftUI_Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A6193C01D9468736E524A8 /* Pods_ArcGIS_SwiftUI_Combine.framework */; };
+		45991045285A85F900B5A79E /* ArcGIS in Frameworks */ = {isa = PBXBuildFile; productRef = 45991044285A85F900B5A79E /* ArcGIS */; };
+		45991048285A862200B5A79E /* ArcGISToolkit in Frameworks */ = {isa = PBXBuildFile; productRef = 45991047285A862200B5A79E /* ArcGISToolkit */; };
 		94130CE723BC01330000190F /* PortalSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94130CE623BC01330000190F /* PortalSignInView.swift */; };
 		94130CE923BC01650000190F /* AppPortalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94130CE823BC01650000190F /* AppPortalModel.swift */; };
 		94130CED23BC02120000190F /* AlertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94130CEC23BC02120000190F /* AlertError.swift */; };
@@ -40,7 +41,6 @@
 		94D9CB0D23EDE1C10034CD2B /* SUIScalebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D9CB0C23EDE1C10034CD2B /* SUIScalebar.swift */; };
 		94D9CB1423F1CD5B0034CD2B /* SUILegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D9CB1323F1CD5B0034CD2B /* SUILegendView.swift */; };
 		94E1999C22CFF6AF0097FF7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94E1999B22CFF6AF0097FF7E /* Assets.xcassets */; };
-		94E1999F22CFF6AF0097FF7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94E1999E22CFF6AF0097FF7E /* Preview Assets.xcassets */; };
 		94E199A222CFF6AF0097FF7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E199A022CFF6AF0097FF7E /* LaunchScreen.storyboard */; };
 		94E7F0E4237A33B800317271 /* AGSPortal+Publishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E7F0E3237A33B800317271 /* AGSPortal+Publishable.swift */; };
 		94FF73F723E76C26003B90A7 /* CompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FF73F623E76C26003B90A7 /* CompassView.swift */; };
@@ -48,22 +48,9 @@
 		94FF73FE23E772D9003B90A7 /* PortalItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FF73FD23E772D9003B90A7 /* PortalItemView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		94E199AD22CFF6CF0097FF7E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		261879EE773D97063D63FDC2 /* Pods-ArcGIS-SwiftUI-Combine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArcGIS-SwiftUI-Combine.debug.xcconfig"; path = "Target Support Files/Pods-ArcGIS-SwiftUI-Combine/Pods-ArcGIS-SwiftUI-Combine.debug.xcconfig"; sourceTree = "<group>"; };
-		548986393BC6DBF9FEC0B671 /* Pods-ArcGIS-SwiftUI-Combine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArcGIS-SwiftUI-Combine.release.xcconfig"; path = "Target Support Files/Pods-ArcGIS-SwiftUI-Combine/Pods-ArcGIS-SwiftUI-Combine.release.xcconfig"; sourceTree = "<group>"; };
+		45991049285A865400B5A79E /* ArcGIS-SwiftUI-Combine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ArcGIS-SwiftUI-Combine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4599104A285A87F500B5A79E /* ArcGIS-SwiftUI-Combine-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ArcGIS-SwiftUI-Combine-Bridging-Header.h"; sourceTree = "<group>"; };
 		94130CE623BC01330000190F /* PortalSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalSignInView.swift; sourceTree = "<group>"; };
 		94130CE823BC01650000190F /* AppPortalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPortalModel.swift; sourceTree = "<group>"; };
 		94130CEC23BC02120000190F /* AlertError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertError.swift; sourceTree = "<group>"; };
@@ -76,7 +63,6 @@
 		94130CFF23C913690000190F /* PortalUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalUserView.swift; sourceTree = "<group>"; };
 		94130D0123CCE5360000190F /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
 		94130D0323CCED7C0000190F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		943F878722DFAFB700EC40E3 /* ArcGIS-SwiftUI-Combine-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ArcGIS-SwiftUI-Combine-Bridging-Header.h"; sourceTree = "<group>"; };
 		943F878922DFAFB800EC40E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		943F878A22DFAFB800EC40E3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		943F878F22DFAFC400EC40E3 /* Publishable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Publishable.swift; sourceTree = "<group>"; };
@@ -96,16 +82,13 @@
 		94D9CB0623ECC91B0034CD2B /* AGSPopup+Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSPopup+Selection.swift"; sourceTree = "<group>"; };
 		94D9CB0C23EDE1C10034CD2B /* SUIScalebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUIScalebar.swift; sourceTree = "<group>"; };
 		94D9CB1323F1CD5B0034CD2B /* SUILegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUILegendView.swift; sourceTree = "<group>"; };
-		94E1999222CFF6AD0097FF7E /* ArcGIS-SwiftUI-Combine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ArcGIS-SwiftUI-Combine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E1999B22CFF6AF0097FF7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		94E1999E22CFF6AF0097FF7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		94E199A122CFF6AF0097FF7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94E199A322CFF6AF0097FF7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94E7F0E3237A33B800317271 /* AGSPortal+Publishable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGSPortal+Publishable.swift"; sourceTree = "<group>"; };
 		94FF73F623E76C26003B90A7 /* CompassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassView.swift; sourceTree = "<group>"; };
 		94FF73FA23E76E44003B90A7 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		94FF73FD23E772D9003B90A7 /* PortalItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalItemView.swift; sourceTree = "<group>"; };
-		F5A6193C01D9468736E524A8 /* Pods_ArcGIS_SwiftUI_Combine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArcGIS_SwiftUI_Combine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +96,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F0DAFE9498BF0FF986DF442 /* Pods_ArcGIS_SwiftUI_Combine.framework in Frameworks */,
+				45991048285A862200B5A79E /* ArcGISToolkit in Frameworks */,
+				45991045285A85F900B5A79E /* ArcGIS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,23 +206,14 @@
 			isa = PBXGroup;
 			children = (
 				94E1999422CFF6AD0097FF7E /* ArcGIS-SwiftUI-Combine */,
-				94E1999322CFF6AD0097FF7E /* Products */,
-				C3546C1CB913E05B76DF6624 /* Pods */,
-				D56B71E935408F9B3E9B3557 /* Frameworks */,
+				45991049285A865400B5A79E /* ArcGIS-SwiftUI-Combine.app */,
 			);
-			sourceTree = "<group>";
-		};
-		94E1999322CFF6AD0097FF7E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				94E1999222CFF6AD0097FF7E /* ArcGIS-SwiftUI-Combine.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		94E1999422CFF6AD0097FF7E /* ArcGIS-SwiftUI-Combine */ = {
 			isa = PBXGroup;
 			children = (
+				4599104A285A87F500B5A79E /* ArcGIS-SwiftUI-Combine-Bridging-Header.h */,
 				943F878A22DFAFB800EC40E3 /* AppDelegate.swift */,
 				943F878922DFAFB800EC40E3 /* SceneDelegate.swift */,
 				94130CE523BC011C0000190F /* App */,
@@ -248,18 +223,8 @@
 				94E1999B22CFF6AF0097FF7E /* Assets.xcassets */,
 				94E199A022CFF6AF0097FF7E /* LaunchScreen.storyboard */,
 				94E199A322CFF6AF0097FF7E /* Info.plist */,
-				94E1999D22CFF6AF0097FF7E /* Preview Content */,
-				943F878722DFAFB700EC40E3 /* ArcGIS-SwiftUI-Combine-Bridging-Header.h */,
 			);
 			path = "ArcGIS-SwiftUI-Combine";
-			sourceTree = "<group>";
-		};
-		94E1999D22CFF6AF0097FF7E /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				94E1999E22CFF6AF0097FF7E /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		94FF73F523E76C0B003B90A7 /* Compass */ = {
@@ -297,23 +262,6 @@
 			path = Portal;
 			sourceTree = "<group>";
 		};
-		C3546C1CB913E05B76DF6624 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				261879EE773D97063D63FDC2 /* Pods-ArcGIS-SwiftUI-Combine.debug.xcconfig */,
-				548986393BC6DBF9FEC0B671 /* Pods-ArcGIS-SwiftUI-Combine.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		D56B71E935408F9B3E9B3557 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F5A6193C01D9468736E524A8 /* Pods_ArcGIS_SwiftUI_Combine.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -321,20 +269,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94E199A622CFF6AF0097FF7E /* Build configuration list for PBXNativeTarget "ArcGIS-SwiftUI-Combine" */;
 			buildPhases = (
-				A075C15A5912AC1F39076441 /* [CP] Check Pods Manifest.lock */,
 				94E1998E22CFF6AD0097FF7E /* Sources */,
 				94E1998F22CFF6AD0097FF7E /* Frameworks */,
 				94E1999022CFF6AD0097FF7E /* Resources */,
-				94E199AD22CFF6CF0097FF7E /* Embed Frameworks */,
-				D56C9A106AD815BA414DD46A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "ArcGIS-SwiftUI-Combine";
+			packageProductDependencies = (
+				45991044285A85F900B5A79E /* ArcGIS */,
+				45991047285A862200B5A79E /* ArcGISToolkit */,
+			);
 			productName = "ArcGIS-SwiftUI-Combine";
-			productReference = 94E1999222CFF6AD0097FF7E /* ArcGIS-SwiftUI-Combine.app */;
+			productReference = 45991049285A865400B5A79E /* ArcGIS-SwiftUI-Combine.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -344,7 +293,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = Esri;
 				TargetAttributes = {
 					94E1999122CFF6AD0097FF7E = {
@@ -362,7 +311,11 @@
 				Base,
 			);
 			mainGroup = 94E1998922CFF6AD0097FF7E;
-			productRefGroup = 94E1999322CFF6AD0097FF7E /* Products */;
+			packageReferences = (
+				45991043285A85F900B5A79E /* XCRemoteSwiftPackageReference "arcgis-runtime-ios" */,
+				45991046285A862200B5A79E /* XCRemoteSwiftPackageReference "arcgis-runtime-toolkit-ios" */,
+			);
+			productRefGroup = 94E1998922CFF6AD0097FF7E;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -377,54 +330,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				94E199A222CFF6AF0097FF7E /* LaunchScreen.storyboard in Resources */,
-				94E1999F22CFF6AF0097FF7E /* Preview Assets.xcassets in Resources */,
 				94E1999C22CFF6AF0097FF7E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		A075C15A5912AC1F39076441 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ArcGIS-SwiftUI-Combine-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D56C9A106AD815BA414DD46A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ArcGIS-SwiftUI-Combine/Pods-ArcGIS-SwiftUI-Combine-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ArcGIS-SwiftUI-Combine/Pods-ArcGIS-SwiftUI-Combine-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ArcGIS-SwiftUI-Combine/Pods-ArcGIS-SwiftUI-Combine-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		94E1998E22CFF6AD0097FF7E /* Sources */ = {
@@ -509,6 +419,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -569,6 +480,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -599,12 +511,10 @@
 		};
 		94E199A722CFF6AF0097FF7E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 261879EE773D97063D63FDC2 /* Pods-ArcGIS-SwiftUI-Combine.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "ArcGIS-SwiftUI-Combine/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6XLTZ44GH4;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -627,12 +537,10 @@
 		};
 		94E199A822CFF6AF0097FF7E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 548986393BC6DBF9FEC0B671 /* Pods-ArcGIS-SwiftUI-Combine.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "ArcGIS-SwiftUI-Combine/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6XLTZ44GH4;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -674,6 +582,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		45991043285A85F900B5A79E /* XCRemoteSwiftPackageReference "arcgis-runtime-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Esri/arcgis-runtime-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		45991046285A862200B5A79E /* XCRemoteSwiftPackageReference "arcgis-runtime-toolkit-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Esri/arcgis-runtime-toolkit-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 100.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		45991044285A85F900B5A79E /* ArcGIS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45991043285A85F900B5A79E /* XCRemoteSwiftPackageReference "arcgis-runtime-ios" */;
+			productName = ArcGIS;
+		};
+		45991047285A862200B5A79E /* ArcGISToolkit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45991046285A862200B5A79E /* XCRemoteSwiftPackageReference "arcgis-runtime-toolkit-ios" */;
+			productName = ArcGISToolkit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 94E1998A22CFF6AD0097FF7E /* Project object */;
 }

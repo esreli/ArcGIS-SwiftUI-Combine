@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "arcgis-runtime-ios",
+        "repositoryURL": "https://github.com/Esri/arcgis-runtime-ios",
+        "state": {
+          "branch": "main",
+          "revision": "df0544ed3be700c1345e1d57c69dcb9a709d4036",
+          "version": null
+        }
+      },
+      {
+        "package": "arcgis-runtime-toolkit-ios",
+        "repositoryURL": "https://github.com/Esri/arcgis-runtime-toolkit-ios",
+        "state": {
+          "branch": null,
+          "revision": "fa94e6f039dc36e2d1ce3148436a95ca9bac23b8",
+          "version": "100.14.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
