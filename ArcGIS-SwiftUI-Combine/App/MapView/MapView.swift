@@ -64,7 +64,7 @@ class MapViewModel: ObservableObject {
         mapView.map = map
 
         // Inset the content giving space for the Scalebar.
-        mapView.contentInset = AGSEdgeInsets(top: 0.0, left: 0.0, bottom: scalebarHeight, right: 0.0)
+        mapView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: scalebarHeight, right: 0.0)
     }
     
     // MARK:- Compass

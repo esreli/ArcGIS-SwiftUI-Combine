@@ -14,6 +14,7 @@
 
 import ArcGIS
 import Combine
+import UIKit
 
 extension AGSMapView: PublishableBase { }
 
@@ -204,7 +205,7 @@ extension Publishable where Base == AGSMapView {
     
     // MARK: Properties
     
-    var adjustedContentInset: AnyPublisher<AGSEdgeInsets, Never> {
+    var adjustedContentInset: AnyPublisher<UIEdgeInsets, Never> {
         base.publisher(for: \.adjustedContentInset).eraseToAnyPublisher()
     }
     
@@ -228,7 +229,7 @@ extension Publishable where Base == AGSMapView {
         base.publisher(for: \.callout).eraseToAnyPublisher()
     }
     
-    var contentInset: AnyPublisher<AGSEdgeInsets, Never> {
+    var contentInset: AnyPublisher<UIEdgeInsets, Never> {
         base.publisher(for: \.contentInset).eraseToAnyPublisher()
     }
     
